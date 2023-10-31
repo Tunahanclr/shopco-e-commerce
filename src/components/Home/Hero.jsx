@@ -28,7 +28,7 @@ function SamplePrevArrow(props) {
 function ImageWithText({ src }) {
   return (
     <div className="text-red-500 p-2 sm:p-0 relative">
-      <img className="h-[200px] sm:h-[400px] md:h-[844px] w-full object-cover" src={src} alt="" />
+      <img className="h-[200px] sm:h-[400px] md:h-[870px] w-full object-cover" src={src} alt="" />
       <div className="absolute top-1/2 left-[120px] sm:left-[300px] md:left-[450px] transform -translate-x-1/2 -translate-y-1/2">
         <span className="text-[8px] sm:text-[16px] text-[#ee1c47]">Winter Collection</span>
         <h2 className="text-black text-[20px] sm:text-[40px] md:text-[80px] leading-none font-bold">
@@ -51,7 +51,7 @@ export default function Hero() {
     slidesToScroll: 1,
     initialSlide: 0,
     autoplay: true,
-    autoplaySpeed: 700000,
+    autoplaySpeed: 7000,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
