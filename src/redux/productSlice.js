@@ -3,16 +3,24 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 const initialState = {
   products: [],
+  product:{},
   loading: false
 }
 
 export const getProducts = createAsyncThunk(
-  'products',
-  async () => {
-    const response = await axios.get('https://fakestoreapi.com/products')
-    return response.data
+  'products/getProducts',
+  async (params) => {
+    const response = await axios.get(`https://fakestoreapi.com/products?`);
+    return response.data;
   }
-)
+);
+export const getProductDetail = createAsyncThunk(
+    'product',
+    async (id) => {
+      const response = await axios.get(`https://fakestoreapi.com/products/${id}`)
+      return response.data
+    }
+  )
 
 export const productSlice = createSlice({
   name: 'products',  // Name'i "products" yapın
@@ -26,6 +34,13 @@ export const productSlice = createSlice({
       state.loading = false;
       state.products = action.payload;
     })
+    builder.addCase(getProductDetail.pending, (state) => {
+        state.loading = true;
+      })
+      builder.addCase(getProductDetail.fulfilled, (state, action) => {  
+        state.loading = false;
+        state.product= action.payload;
+      })
   }
 })
 

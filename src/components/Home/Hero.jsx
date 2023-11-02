@@ -8,7 +8,7 @@ function SampleNextArrow(props) {
   return (
     <FaAngleRight
       onClick={onClick}
-      className={`${className} sm:w-12 w-6 h-6 sm:h-12 absolute top-1/2 right-3 transform -translate-y-1/2 text-red-500 hover:text-red-600 z-50`}
+      className={`${className} sm:w-12 w-6 h-6 sm:h-12 absolute top-1/2 right-3 transform -translate-y-1/2 text-red-500 hover:text-red-600 z-10`}
       style={{ ...style }}
     />
   );
@@ -19,7 +19,7 @@ function SamplePrevArrow(props) {
   return (
     <FaAngleLeft
       onClick={onClick}
-      className={`${className} sm:w-12 w-6 h-6 sm:h-12 absolute top-1/2 left-3 transform -translate-y-1/2 text-red-500  hover:text-red-600 z-50`}
+      className={`${className} sm:w-12 w-6 h-6 sm:h-12 absolute top-1/2 left-3 transform -translate-y-1/2 text-red-500  hover:text-red-600 z-10`}
       style={{ ...style }}
     />
   );

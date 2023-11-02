@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../../redux/productSlice";
 import ProductCard from "./ProductCard";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import { getProducts } from "../../redux/productSlice";
+import { NavLink } from "react-router-dom";
 
 export default function Products() {
   const dispatch = useDispatch(); // useDispatch fonksiyonunu çağırın
@@ -10,9 +11,8 @@ export default function Products() {
   useEffect(() => {
     dispatch(getProducts()); // Fonksiyon çağrısı "getProducts"
   }, [dispatch]);
-  console.log(products);
   return (
-    <div>
+    <div className="h-full">
       <h2 className="text-black font-bold mt-12 sm:mt-20 text-center text-2xl ">
         Our Trending Products
       </h2>
@@ -31,10 +31,10 @@ export default function Products() {
         ))}
       </div>
       <div className="flex justify-center mt-2 items-center">
-        <button className=" flex justify-between items-center gap-2 cursor-pointer bg-white text-center text-[16px] border border-black hover:text-white h-[46px] hover:bg-black transition-all px-[25px] ">
+        <NavLink to={'/products'} className=" mt-2 flex justify-between items-center gap-2 cursor-pointer bg-white text-center text-[16px] border border-black hover:text-white h-[46px] hover:bg-black transition-all px-[25px] ">
           Explore More
           <AiOutlineArrowRight/>
-        </button>
+        </NavLink>
       </div>
     </div>
   );
