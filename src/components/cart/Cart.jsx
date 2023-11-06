@@ -32,7 +32,7 @@ export default function Cart() {
                   <p className="text-gray-500">${item.price}</p>
                 </div>
                 <div className=""> {/* Ürün miktarı için sabit genişlik */}
-                  <div className="text-sm text-gray-500"> quantity: ({item.quantity === 1 ? "1" : `(${item.quantity})`})</div>
+                  <div className="text-sm text-gray-500"> quantity:{item.quantity === 1 ? "(1)" : `(${item.quantity})`}</div>
                 </div>
               </div>
               <div className="w-1/5 text-xl font-semibold text-right">${item.quantity * item.price}</div> {/* Toplam tutar için sağa hizalı */}
