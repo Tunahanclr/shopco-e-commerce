@@ -28,9 +28,6 @@ export default function ProductCard({ product }) {
               isHovered ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
           >
-            <button className="border hover:bg-black hover:text-white transition-all border-gray-400 p-2 m-2">
-              Add to card
-            </button>
             <button
               className="border hover:bg-black hover:text-white transition-all border-gray-400 p-2 m-2"
               onClick={() => navigate(`/product/${product.id}`)}

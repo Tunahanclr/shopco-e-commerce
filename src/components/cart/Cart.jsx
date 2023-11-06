@@ -15,22 +15,24 @@ export default function Cart() {
   };
 
   const totalAmount = carts.reduce((total, item) => total + item.price * item.quantity, 0);
-
+  const roundedTotal = Math.round(totalAmount);
   return (
     <div className="container min-h-screen mx-auto mt-8 p-4">
       <h1 className="text-3xl font-semibold mb-4">Your Cart</h1>
       {carts.length > 0 ? (
         <div className="grid grid-cols-1 gap-4">
           {carts.map((item, i) => (
-            <div key={i} className="bg-white p-4 shadow-md rounded-lg flex items-center justify-between">
+            <div key={i} className="bg-white p-4 shadow-md rounded-lg flex-col  sm:flex-row flex items-center justify-between">
               <div className="flex items-center space-x-4">
-                <img src={item.image} alt={item.name} className="w-16 h-16 object-cover rounded-lg" />
+                <img src={item.image} alt={item.name} className="w-24 h-24 object-cover rounded-lg" />
+                
                 <div className="w-2/5"> {/* Ürün adı ve fiyat için sabit genişlik */}
                   <h2 className="text-lg font-semibold line-clamp-2">{item.name}</h2>
+                  
                   <p className="text-gray-500">${item.price}</p>
                 </div>
-                <div className="w-1/5"> {/* Ürün miktarı için sabit genişlik */}
-                  <div className="text-sm text-gray-500">Quantity: {item.quantity === 1 ? "1" : `(${item.quantity})`}</div>
+                <div className=""> {/* Ürün miktarı için sabit genişlik */}
+                  <div className="text-sm text-gray-500"> quantity: ({item.quantity === 1 ? "1" : `(${item.quantity})`})</div>
                 </div>
               </div>
               <div className="w-1/5 text-xl font-semibold text-right">${item.quantity * item.price}</div> {/* Toplam tutar için sağa hizalı */}
@@ -57,6 +59,7 @@ export default function Cart() {
           >
             Clear Cart
           </button>
+         
         </div>
       )}
     </div>

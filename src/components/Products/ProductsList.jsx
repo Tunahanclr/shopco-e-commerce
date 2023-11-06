@@ -4,7 +4,6 @@ import Filter from "./Filter";
 import ReactPaginate from "react-paginate"; // ReactPaginate'ı içe aktardık
 import { getProducts } from "../../redux/productSlice";
 import ProductCard from "../../components/Products/ProductCard";
-import { sortProducts } from "../../redux/generelSlice";
 
 export default function ProductsList() {
   const dispatch = useDispatch();

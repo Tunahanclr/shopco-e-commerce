@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function ProductCard({ product }) {
   const navigate = useNavigate();
+
   return (
     <>
       <div className="flex flex-col items-center">
@@ -17,8 +18,11 @@ export default function ProductCard({ product }) {
             {product.title}
           </h3>
           <p className="mt-1 text-gray-600">{product.price} USD</p>
-          <button className="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors">
-            Add to Cart
+          <button
+            onClick={() => navigate(`/product/${product.id}`)}
+            className="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors"
+          >
+            Product details
           </button>
         </div>
       </div>

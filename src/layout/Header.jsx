@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
 import { SlBasket } from "react-icons/sl";
-import { FaBars } from "react-icons/fa";
+import { FaBars} from "react-icons/fa";
 import { BiUserCircle } from "react-icons/bi";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,21 +12,22 @@ export default function Header() {
   const [keyword, setKeyword] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const carts = useSelector((state) => state.cart.carts) || [];
 
   const openNav = () => {
     setNav(!nav);
   };
 
   const keywordFunc = (e) => {
-    e.preventDefault()
-    setKeyword('')
-    dispatch(getKeyword(keyword))
-    navigate(`/products?keyword=${keyword}`); // URL'ye anahtar kelimeyi ekleyin
+    e.preventDefault();
+    setKeyword("");
+    dispatch(getKeyword(keyword));
+    navigate(`/products?keyword=${keyword}`);
   };
 
   return (
     <div className="">
-      <div className="flex items-center h-[81px] px-4 justify-between max-w-[1500px] mx-auto">
+      <div className="flex  items-center h-[81px] px-4 justify-between max-w-[1500px] mx-auto">
         <div className="text-[#505050]">
           <ul className="hidden md:flex gap-6 md:gap-[60px] text-[14px]">
             <li>
@@ -114,8 +115,15 @@ export default function Header() {
             />
           </form>
           <AiOutlineSearch className="relative right-6" />
-          <div className="flex cursor-pointer gap-2 items-center">
-            <SlBasket onClick={()=>navigate('/cart')} size={20} />
+          <div className="flex cursor-pointer gap-4 items-center">
+            <SlBasket
+              className="absolute "
+              onClick={() => navigate("/cart")}
+              size={20}
+            />
+            <span className="relative bottom-0 bg-gray-400 rounded-full w-4 text-center -top-3 left-3 ">
+                {carts.length}
+            </span>
             <BiUserCircle size={20} />
           </div>
         </div>

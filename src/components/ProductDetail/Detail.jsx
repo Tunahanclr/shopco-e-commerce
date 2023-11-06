@@ -9,7 +9,6 @@ export default function Detail() {
   const dispatch = useDispatch();
   const { product, loading } = useSelector((state) => state.products);
   const [quantity, setQuantity] = useState(1);
-  const navigate = useNavigate();
 
   const increment = () => {
     setQuantity(quantity + 1);
@@ -37,8 +36,7 @@ export default function Detail() {
         price: product.price,
         quantity: quantity,
       };
-      dispatch(addToCart(data)); // addToCard yerine addToCart kullanın
-      navigate("/cart");
+      dispatch(addToCart(data)); 
     } else {
       console.error("Ürün bilgileri eksik veya hatalı.");
     }
@@ -77,7 +75,7 @@ export default function Detail() {
               onClick={addBasket}
               className="bg-green-500 text-white font-semibold rounded-md p-4 w-[200px] mt-4 hover:bg-green-600 transition duration-300"
             >
-              Sepete Ekle
+              Add to card
             </button>
           </div>
         </div>
