@@ -115,7 +115,7 @@ export default function Header() {
           </form>
           <AiOutlineSearch className="relative right-6" />
           <div className="flex cursor-pointer gap-2 items-center">
-            <SlBasket size={20} />
+            <SlBasket onClick={()=>navigate('/cart')} size={20} />
             <BiUserCircle size={20} />
           </div>
         </div>

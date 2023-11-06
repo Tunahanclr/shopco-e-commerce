@@ -14,7 +14,6 @@ export const generalSlice = createSlice({
         },
     },
 });
-
 export const { getKeyword,sortProducts } = generalSlice.actions;
 
 export default generalSlice.reducer;

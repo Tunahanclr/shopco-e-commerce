@@ -46,7 +46,6 @@ export default function ProductsList() {
   }, [dispatch]);
 
   return (
-   <>
     <div className="max-w-[1500px] mt-2 mx-auto flex">
       <div>
         <Filter filters={filters} setFilters={setFilters} />
@@ -81,6 +80,5 @@ export default function ProductsList() {
         </div>
       )}
     </div>
-   </>
   );
 }
